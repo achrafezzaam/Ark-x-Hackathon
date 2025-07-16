@@ -98,8 +98,10 @@ for (let i = 0; i < newTasks.length; i++) {
     const taskDisplay = document.createElement('div');
     taskDisplay.textContent = newTasks[i].task;
     if (newTasks[i].status) {
+        taskDisplay.classList.add("task");        
         taskDisplay.classList.add("done");        
     } else {
+        taskDisplay.classList.add("task");        
         taskDisplay.classList.add("undone");
     }
     target.appendChild(taskDisplay);
@@ -116,3 +118,35 @@ const completePercent = count * 100 / newTasks.length;
 const progress = document.getElementById("progress");
 progress.setAttribute("value", completePercent);
 progress.textContent = completePercent + "%";
+
+const doneBtn = document.getElementById("done");
+const undoneBtn = document.getElementById("undone");
+const clearBtn = document.getElementById("clear");
+
+const allTasks = document.querySelectorAll(".task");
+
+doneBtn.addEventListener("click", () => {
+    allTasks.forEach(task => {
+        if (task.classList.contains("done")) {
+            task.style.display = "block";
+        } else {
+            task.style.display = "none";
+        }
+    });
+});
+
+undoneBtn.addEventListener("click", () => {
+    allTasks.forEach(task => {
+        if (task.classList.contains("undone")) {
+            task.style.display = "block";
+        } else {
+            task.style.display = "none";
+        }
+    });
+});
+
+clearBtn.addEventListener("click", () => {
+    allTasks.forEach(task => {
+        task.style.display = "block";
+    });
+});
