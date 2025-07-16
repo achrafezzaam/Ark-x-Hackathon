@@ -1,0 +1,22 @@
+#tasks, .progress-container{
+    width: 80%;
+    margin: 20px auto;
+}
+
+#tasks>div {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.done {
+    background-color: #7DE6A1;
+}
+
+.undone {
+    background-color: #ED7F7B;
+}
+
+progress {
+    width: 100%;
+}
